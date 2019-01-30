@@ -13,6 +13,7 @@ namespace EvaFinal.Models
         public string Telefono { get; set; }
         public string Correo { get; set; }
         public string Direccion { get; set; }
+        public string Sexo { get; set; }
       
 
     }
