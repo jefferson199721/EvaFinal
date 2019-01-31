@@ -87,11 +87,11 @@ var listaAlumnos = () => {
     var alumnos = new ClaseAlumnos('', '', '', '', '', accion);
     alumnos.listaAlumnos();
 }
-var listaproveedores = () => {
-    var accion = '../Proveedors/Lista_Proveedor_Controller';
-    var proveedor = new ClaseProveedores('', '', '', accion);
-    proveedor.listaProveedores();
-}
+//var listaproveedores = () => {
+//    var accion = '../Proveedors/Lista_Proveedor_Controller';
+//    var proveedor = new ClaseProveedores('', '', '', accion);
+//    proveedor.listaProveedores();
+//}
 
 
 var listaProfesor = () => {
