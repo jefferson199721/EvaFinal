@@ -1,19 +1,12 @@
 ﻿$().ready(
     ()=>    {
-    listaAlumnos();
+        listaAlumnos();
     });
-
-
-//$().ready(
-//    () => {
-//    listaproveedores();
-//    });
-////Ingreso de Nuevos/////
 var nuevo_Alumno = () => {
     var Nombres = document.getElementById('Nombres').value;
     var Apellidos = document.getElementById('Apellidos').value;
     var CursoParalelo = document.getElementById('CursoParalelo').value;
-    var NumMatricula = document.getElementById("NumMatricula").value;
+    var NumMatricula = document.getElementById("NumMatricula");
 
     if (NumMatricula == '') {
         var accion = '../Alumnos/Nuevo_Alumno_Controller';
@@ -46,23 +39,20 @@ var Un_Alumno = (NumMatricula) => {
     alumnos.Un_Alumnos(NumMatricula);
 }
 
-//var Un_Profesor = (ProfesorId) => {
-//    var accion = "Profesores/Un_Profesor_Controller";
-//    var profesor = new ClaseProfesor
-//}
+
 
 
 ////Ingreso de Eliminar/////
 var eliminar_alumnos = (NumMatricula) => {
     var accion = "Alumnos/Eliminar_Alumnos_Controller";
     var alumnos = new ClaseAlumnos(' ', ' ', ' ', accion);
-    cliente.eliminar_cliente(NumMatricula);
+    alumnos.eliminar_cliente(NumMatricula);
 }
 
 ////Ingreso de Listas/////
 var listaAlumnos = () => {
     var accion = 'Alumnos/Lista_Alumnos_Controller';
-    var alumnos = new ClaseAlumnos('', '', '', '', '', accion);
+    var alumnos = new ClaseAlumnos(' ', ' ', ' ', accion);
     alumnos.listaAlumnos();
 }
 var listaproveedores = () => {

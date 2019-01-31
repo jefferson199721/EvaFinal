@@ -9,7 +9,7 @@
     Nuevo_Alumno(NumMatricula) {
         var Nombres = this.Nombres;
         var Apellidos = this.Apellidos;
-        var CursoParalelo = this.CursoParalelo;        
+        var CursoParalelo = this.CursoParalelo;
         var accion = this.accion;
 
         if (NumMatricula == '') {
@@ -106,11 +106,10 @@
             accion,
             {},
             (respuesta) => {
-
-                $.each(respuesta, (index, val) => {
+                $.each(respuesta, (Index, val) => {
                     $('#Cuerpo_Alumno').html(val[0])
                 });
-               
+
             }
         );
     }
@@ -122,7 +121,7 @@
         document.getElementById("Nombres").value = '';
         document.getElementById("Apellidos").value = '';
         document.getElementById("CursoParalelo").value = '';
-        
+
         document.getElementById("NumMatricula").value = '';
         $('#Ingreso_Alumnos').modal('hide');
         listaAlumnos();
