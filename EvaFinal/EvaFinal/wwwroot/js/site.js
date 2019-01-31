@@ -10,13 +10,17 @@ var nuevo_Alumno = () => {
     var Apellidos = document.getElementById('Apellidos').value;
     var CursoParalelo = document.getElementById('CursoParalelo').value;
 
-    var NumMatricula = document.getElementById('NumMatricula');
+    var NumMatricula = document.getElementById('NumMatricula').value;
 
     if (NumMatricula == '') {
         var accion = '../Alumnos/Nuevo_Alumno_Controller';
     } else {
         var accion = '../Alumnos/Editar_Alumno_Controller';
     }
+  
+    var al = new ClaseAlumnos(Nombres, Apellidos, CursoParalelo, accion);
+    al.Nuevo_Alumno(NumMatricula);
+
     if (Nombres == '') {
        
     } else {
