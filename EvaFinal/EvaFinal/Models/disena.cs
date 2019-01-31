@@ -17,9 +17,9 @@ namespace EvaFinal.Models
     
 }
 
-        public string Detal { get; set; }
+        //public string Detal { get; set; }
 
 
     }
 
-}
+

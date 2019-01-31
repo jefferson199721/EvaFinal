@@ -37,15 +37,15 @@ namespace EvaFinal.Controllers
 
             }
 
-            public Profesor Un_Hace_Controller(int (hacerid)
-            {
-                return _haces_model.Un_Hace_Model(hacerid);
-            }
-            public IdentityError Editar_Profesor_Controller(int hacerid, string Nombre)
-            {
-                return _haces_model.Editar_Hace_Model(hacerid, Nombre);
+            //public Profesor Un_Hace_Controller(int (hacerid)
+            //{
+            //    return _haces_model.Un_Hace_Model(hacerid);
+            //}
+            //public IdentityError Editar_Profesor_Controller(int hacerid, string Nombre)
+            //{
+            //    return _haces_model.Editar_Hace_Model(hacerid, Nombre);
 
-            }
+            //}
             public IdentityError Eliminar_hacer_Controller(int hacerid)
             {
                 return _haces_model.Eliminar_hace_Model(hacerid);
@@ -55,4 +55,5 @@ namespace EvaFinal.Controllers
                 return _haces_model.Lista_Hace_Model();
             }
         }
+    }
 }
