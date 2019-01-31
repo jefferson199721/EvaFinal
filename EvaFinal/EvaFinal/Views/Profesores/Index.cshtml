@@ -1,0 +1,51 @@
+﻿@model IEnumerable<EvaFinal.Models.Profesor>
+@{
+    ViewData["Title"] = "Index";
+}
+<h2>Lista de Profesores</h2>
+
+<p>
+    <a class="btn btn-primary" data-toggle="modal" data-target="#Ingreso_Profesor">Nuevo Profesor</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nombre
+            </th>            
+        </tr>
+    </thead>
+    <tbody id="Cuerpo_Profesor"></tbody>
+</table>
+
+<div class="modal fade" id="Ingreso_Profesor" tabindex="-1" role="dialog" aria-labelledby="EtiquetaModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="EtiquetaModal">
+                    Ingreso de Profesores
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="hidden" name="ProfesorId" id="ProfesorId" />
+                    <div class="form-group">
+                        <label class="control-label">Nombre</label>
+                        <input id="Nombre" name="Nombre" class="form-control"
+                               type="text" placeholder="Ingrese el nombre del profesor" />
+                        <span class="label-danger hidden">Campo Obligatorio</span>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="">Cerrar</button>
+                <button id="graba" type="button" class="btn btn-primary" onclick="Nuevo_Profesor()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
