@@ -57,7 +57,7 @@ namespace EvaFinal.Models
 
         public hace Un_Hace_Model(int hacerid)
         {
-//return 
+    //return 
             hace hace = (from hc in _contexto.Hacer
                                where hc.hacerid == hacerid
                             select hc).FirstOrDefault();
