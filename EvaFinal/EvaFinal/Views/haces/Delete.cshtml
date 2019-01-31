@@ -1,0 +1,39 @@
+﻿@model EvaFinal.Models.hace
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>hace</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nota)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nota)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.alumnos)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.alumnos.NumMatricula)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.examen)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.examen.ExamenId)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="hacerid" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

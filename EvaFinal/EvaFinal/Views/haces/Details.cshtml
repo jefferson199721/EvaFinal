@@ -1,0 +1,36 @@
+﻿@model EvaFinal.Models.hace
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>hace</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nota)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nota)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.alumnos)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.alumnos.NumMatricula)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.examen)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.examen.ExamenId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.hacerid">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
