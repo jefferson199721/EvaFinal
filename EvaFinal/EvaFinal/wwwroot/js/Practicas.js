@@ -13,45 +13,56 @@
         var Dificultad = this.Dificultad;
         var FechaDiseño = this.FechaDiseño;
         var accion = this.accion;
+   
+       
+        $.ajax({
+            type: 'POST',
+            data: { Titulo, Nota, Dificultad, FechaDiseño },
+            url: accion,
+            success: (respuesta) => {
+                console.log(respuesta);
+            }
+        });
 
-        if (PracticaId == '') {
-            try {
-                $.post(
-                    accion,
-                    { Titulo, Nota, Dificultad, FechaDiseño },
-                    (respuesta) => {
-                        if (respuesta.code == "ok") {
-                            swal('Practica', respuesta.description, 'success');
-                            this.limpiar();
-                        }
-                        else {
-                            swal('Practica', respuesta.description, 'Error');
-                        }
-                    });
-            }
-            catch (e) {
-                alert(e.message);
-            }
-        }
-        else {
-            try {
-                $.post(
-                    accion,
-                    { Titulo, Nota, Dificultad, FechaDiseño  },
-                    (respuesta) => {
-                        if (respuesta.code == "ok") {
-                            swal('Practica', "Se edito con exito", 'success');
-                            this.limpiar();
-                        }
-                        else {
-                            swal('Practica', respuesta.description, 'Error');
-                        }
-                    });
-            }
-            catch (e) {
-                alert(e.message);
-            }
-        }
+        //if (PracticaId == '') {
+        //    try {
+        //        //$.post(
+        //        //    accion,
+        //        //    { Titulo, Nota, Dificultad, FechaDiseño },
+        //        //    (respuesta) => {
+        //        //        if (respuesta.code == "ok") {
+        //        //            swal('Practica', respuesta.description, 'success');
+        //        //            this.limpiar();
+        //        //        }
+        //        //        else {
+        //        //            swal('Practica', respuesta.description, 'Error');
+        //        //        }
+        //        //    });
+                
+        //    }
+        //    catch (e) {
+        //        alert(e.message);
+        //    }
+        //}
+        //else {
+        //    try {
+        //        $.post(
+        //            accion,
+        //            { Titulo, Nota, Dificultad, FechaDiseño  },
+        //            (respuesta) => {
+        //                if (respuesta.code == "ok") {
+        //                    swal('Practica', "Se edito con exito", 'success');
+        //                    this.limpiar();
+        //                }
+        //                else {
+        //                    swal('Practica', respuesta.description, 'Error');
+        //                }
+        //            });
+        //    }
+        //    catch (e) {
+        //        alert(e.message);
+        //    }
+        //}
 
     }
 
