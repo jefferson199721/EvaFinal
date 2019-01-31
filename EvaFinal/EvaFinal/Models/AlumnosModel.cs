@@ -16,7 +16,7 @@ namespace EvaFinal.Models
             _contexto = contexto;
         }
 
-        public IdentityError Nuevo_Cliente_Model(
+        public IdentityError Nuevo_Alumno_Model(
             string Nombres,
             string Apellidos,
             string CursoParalelo)
@@ -62,7 +62,7 @@ namespace EvaFinal.Models
             return alumnos;
         }
 
-        public IdentityError Editar_Alumno_Model(
+        public IdentityError Editar_Alumnos_Model(
             int NumMatricula,
             string Nombres,
             string Apellidos,
