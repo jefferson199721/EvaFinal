@@ -84,7 +84,7 @@ var Practica_Nueva = () => {
 var Un_Alumno = (NumMatricula) => {
     var accion = "Alumnos/Un_Alumno_Controller";
     var alumnos = new ClaseAlumnos(' ',' ',' ', accion);
-    alumnos.Un_Alumnos(NumMatricula);
+    alumnos.Un_Alumno(NumMatricula);
 }
 
 
@@ -109,7 +109,7 @@ var eliminar_alumnos = (NumMatricula) => {
     var accion = "Alumnos/Eliminar_Alumnos_Controller";
     var alumnos = new ClaseAlumnos(' ', ' ', ' ', accion);
 
-    cliente.eliminar_cliente(NumMatricula);
+    alumnos.eliminar_alumnos(NumMatricula);
 }
 
 var eliminar_profesor = (ProfesorId) => {
