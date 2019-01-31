@@ -29,10 +29,17 @@ namespace EvaFinal.Controllers
             return _Examen_model.Nuevo_Examen_Model(NPreguntas,Fecha);
 
         }
+
         public Examen Un_Examen_Controller(int ExamenId)
         {
             return _Examen_model.Un_Examen_Model(ExamenId);
         }
+
+        //public Profesor Un_Examen_Controller(int ExamenId)
+        //{
+        //    //return _Examen_model.Un_Examen_Model(ExamenId);
+        //}
+
         public IdentityError Editar_Examen_Controller(int ExamenId, string NPreguntas,string Fecha)
         {
             return _Examen_model.Editar_Examen_Model(ExamenId, NPreguntas,Fecha);

@@ -101,6 +101,7 @@ var listaProfesor = () => {
     var profesor = new ClaseProfesores('', accion);
     profesor.listaProfesor();
 
+
 var listaProfesor = () => {
     var accion = '../Proveedors/Lista_Proveedor_Controller';
     var profesor = new ClaseProfesores('', '', '', accion);
@@ -116,6 +117,23 @@ var Imprimir_Alumnos = () => {
     $('#Reporte').modal('hide');
 
 }
+
+    var listaProfesor = () => {
+        var accion = '../Proveedors/Lista_Proveedor_Controller';
+        var profesor = new ClaseProfesores('', '', '', accion);
+        profesor.listaProfesor();
+    }
+    ////Imprimir////// 
+    var Imprimir_Alumnos = () => {
+        var contenido = document.getElementById('Imprimir_Alumnos').innerHTML;
+        var contenidopaginaoriginal = document.body.innerHTML;
+        document.body.innerHTML = contenido;
+        window.print();
+        document.body.innerHTML = contenidopaginaoriginal;
+        $('#Reporte').modal('hide');
+
+    }
+
 
     var listaproveedores = () => {
         var accion = '../Proveedors/Lista_Proveedor_Controller';
@@ -143,3 +161,4 @@ var Imprimir_Alumnos = () => {
 
         });
     }
+}
