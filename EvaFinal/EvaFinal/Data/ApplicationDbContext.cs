@@ -27,5 +27,6 @@ namespace EvaFinal.Data
         public DbSet<EvaFinal.Models.Alumnos> Alumnos { get; set; }
         public DbSet<EvaFinal.Models.Profesor>Profesor { get; set; }
         public DbSet<EvaFinal.Models.Examen>Examen { get; set; }
+        public DbSet<EvaFinal.Models.Practica> Practica { get; set; }
     }
 }

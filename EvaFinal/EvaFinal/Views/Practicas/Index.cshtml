@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+<h2>Lista de Practicas</h2>
+
+<p>
+    <a class="btn btn-primary" data-toggle="modal" data-target="#Ingreso_Practica">Nuevo Profesor</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Titulo
+            </th>
+            <th>
+                Nota
+            </th>
+            <th>
+                Dificultad
+            </th>
+            <th>
+                FechaDiseño
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="Cuerpo_Practica"></tbody>
+</table>
+
+<div class="modal fade" id="Ingreso_Practica" tabindex="-1" role="dialog" aria-labelledby="EtiquetaModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="EtiquetaModal">
+                    Ingreso de Practicas
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="hidden" name="PracticaId" id="PracticaId" />
+                    <div class="form-group">
+                        <label class="control-label">Titulo</label>
+                        <input id="Titulo" name="Titulo" class="form-control"
+                               type="text" placeholder="Ingrese el nombre de la practica" />
+                        <span class="label-danger hidden">Campo Obligatorio</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Nota</label>
+                        <input id="Nota" name="Nota" class="form-control"
+                               type="text" placeholder="Ingrese la nota" />
+                        <span class="label-danger hidden">Campo Obligatorio</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Dificultad</label>
+                        <input id="Dificultad" name="Dificultad" class="form-control"
+                               type="text" placeholder="Ingrese la dificultad" />
+                        <span class="label-danger hidden">Campo Obligatorio</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">FechaDiseño</label>
+                        <input id="FechaDiseño" name="Nombre" class="form-control"
+                               type="date" placeholder="Ingrese la fecha" />
+                        <span class="label-danger hidden">Campo Obligatorio</span>
+                    </div>                  
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="">Cerrar</button>
+                <button id="graba" type="button" class="btn btn-primary" onclick="nuevo_Practica()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
