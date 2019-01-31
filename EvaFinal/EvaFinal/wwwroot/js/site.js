@@ -9,16 +9,16 @@
 //    listaproveedores();
 //    });
 ////Ingreso de Nuevos/////
-var nuevo_Alumnos = () => {
+var nuevo_Alumno = () => {
     var Nombres = document.getElementById('Nombres').value;
     var Apellidos = document.getElementById('Apellidos').value;
     var CursoParalelo = document.getElementById('CursoParalelo').value;
     var NumMatricula = document.getElementById("NumMatricula").value;
 
     if (NumMatricula == '') {
-        var accion = '../Alumnos/Nuevo_Alumnos_Controller';
+        var accion = '../Alumnos/Nuevo_Alumno_Controller';
     } else {
-        var accion = '../Alumnos/Editar_Alumnos_Controller';
+        var accion = '../Alumnos/Editar_Alumno_Controller';
     }
     if (Nombres == '') {
        
@@ -49,7 +49,7 @@ var Un_Alumno = (NumMatricula) => {
 
 ////Ingreso de Eliminar/////
 var eliminar_alumnos = (NumMatricula) => {
-    var accion = "Alumnos/Eliminar_Alumno_Controller";
+    var accion = "Alumnos/Eliminar_Alumnos_Controller";
     var alumnos = new ClaseAlumnos(' ', ' ', ' ', accion);
     cliente.eliminar_cliente(NumMatricula);
 }

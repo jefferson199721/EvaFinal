@@ -48,7 +48,7 @@ namespace EvaFinal.Controllers
         }
         public IdentityError Eliminar_Alumnos_Controller(int NumMatricula)
         {
-            return _alumnos_model.Eliminar_Cliente_Model(NumMatricula);
+            return _alumnos_model.Eliminar_Alumnos_Model(NumMatricula);
         }
         public List<object[]> Lista_Alumnos_Controller()
         {
