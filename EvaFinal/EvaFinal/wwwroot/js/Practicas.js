@@ -22,11 +22,11 @@
                     { Titulo, Nota, Dificultad, FechaDiseño },
                     (respuesta) => {
                         if (respuesta.code == "ok") {
-                            swal('Practica', respuesta.description, 'success');
+                            swal('Practicas', respuesta.description, 'success');
                             this.limpiar();
                         }
                         else {
-                            swal('Practica', respuesta.description, 'Error');
+                            swal('Practicas', respuesta.description, 'Error');
                         }
                     });
                 
@@ -42,11 +42,11 @@
                     { Titulo, Nota, Dificultad, FechaDiseño  },
                     (respuesta) => {
                         if (respuesta.code == "ok") {
-                            swal('Practica', "Se edito con exito", 'success');
+                            swal('Practicas', respuesta.description, 'success');
                             this.limpiar();
                         }
                         else {
-                            swal('Practica', respuesta.description, 'Error');
+                            swal('Practicas', respuesta.description, 'Error');
                         }
                     });
             }
@@ -65,11 +65,12 @@
             data: { PracticaId },
             success: (respuesta) => {
 
-                document.getElementById("Titulo").value = respuesta.nombre;
-                document.getElementById("Nota").value = respuesta.nombre;
-                document.getElementById("Dificultad").value = respuesta.nombre;
-                document.getElementById("FechaDiseño").value = respuesta.nombre;
-                document.getElementById("PracticaId").value = respuesta.profesorId;
+                document.getElementById("Titulo").value = respuesta.Titulo;
+                document.getElementById("Nota").value = respuesta.Nota;
+                document.getElementById("Dificultad").value = respuesta.Dificultad;
+                document.getElementById("FechaDiseño").value = respuesta.FechaDiseño;
+
+                document.getElementById("PracticaId").value = respuesta.PracticaId;
             }
         });
     }
