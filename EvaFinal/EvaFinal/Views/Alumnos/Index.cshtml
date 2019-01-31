@@ -1,47 +1,85 @@
 ﻿@model IEnumerable<EvaFinal.Models.Alumnos>
-
 @{
     ViewData["Title"] = "Index";
 }
-
-<h2>Index</h2>
+<h2>Lista de Clientes</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary" data-toggle="modal" data-target="#Ingreso_Cliente">Nuevo Cliente</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Nombres)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Apellidos)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CursoParalelo)
-                </th>
+            <th>
+                Nombres
+            </th>
+            <th>
+                Apellidos
+            </th>
+            <th>
+                Telefono
+            </th>
+            <th>
+                Correo
+            </th>
+            <th>
+                Categoria
+            </th>
+            <th>
+                Garantia
+            </th>
+            <th>
+                FechaIngreso
+            </th>
             <th></th>
         </tr>
     </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombres)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Apellidos)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CursoParalelo)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.NumMatricula">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.NumMatricula">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.NumMatricula">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
+    <tbody id="Cuerpo_Alumno"></tbody>
 </table>
+
+<div class="modal fade" id="Ingreso_Alumnos" tabindex="-1" role="dialog" aria-labelledby="EtiquetaModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="EtiquetaModal">
+                    Ingreso de Alumnos
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="hidden" name="ClienteId" id="ClienteId" />
+                    <div class="form-group">
+                        <label class="control-label">Nombres</label>
+                        <input id="Nombres" name="Nombres" class="form-control"
+                               type="text" placeholder="Ingrese la Nombres del alumno" />
+                        <span  class="label-danger hidden">Campo Obligatorio</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Apellidos</label>
+                        <input id="Apellidos" name="Apellidos" class="form-control"
+                               type="text" placeholder="Ingrese el Apellidos del alumno" />
+                        <span id="control_Nombre" class="label-danger hidden">Campo Obligatorio</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Telefono</label>
+                        <input id="CursoParalelo" name="CursoParalelo" class="form-control"
+                               type="text" placeholder="Ingrese el Telefono del Paralelo del alumno" />
+                        <span id="control_Apellido" class="label-danger hidden">Campo Obligatorio</span>
+                    </div>
+
+                    
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="">Cerrar</button>
+                <button id="graba" type="button" class="btn btn-primary" onclick="nuevo_Alumno()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
