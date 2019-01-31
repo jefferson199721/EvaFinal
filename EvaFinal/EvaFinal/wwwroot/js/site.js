@@ -37,7 +37,7 @@ var nuevo_Alumno = () => {
         }
     }
 }
-var Nuevo_Profesor = () => {
+var nuevo_Profesor = () => {
     var Nombre = document.getElementById('Nombre').value;    
     var ProfesorId = document.getElementById("ProfesorId").value;
 
