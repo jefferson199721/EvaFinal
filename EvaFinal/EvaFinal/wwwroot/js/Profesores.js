@@ -15,11 +15,11 @@
                     { Nombre },
                     (respuesta) => {
                         if (respuesta.code == "ok") {
-                            swal('Profesores', respuesta.description, 'success');
+                            swal('Profesor', respuesta.description, 'success');
                             this.limpiar();
                         }
                         else {
-                            swal('Profesores', respuesta.description, 'Error');
+                            swal('Profesor', respuesta.description, 'Error');
                         }
                     });
             }
@@ -34,11 +34,11 @@
                     { Nombre },
                     (respuesta) => {
                         if (respuesta.code == "ok") {
-                            swal('Profesores', respuesta.description, 'success');
+                            swal('Profesor', "Se edito con exito", 'success');
                             this.limpiar();
                         }
                         else {
-                            swal('ProfProfesoresesor', respuesta.description, 'Error');
+                            swal('Profesor', respuesta.description, 'Error');
                         }
                     });
             }
@@ -56,8 +56,9 @@
             url: accion,
             data: { ProfesorId },
             success: (respuesta) => {
-                document.getElementById("Nombre").value = respuesta.Nombre;  
-                document.getElementById("ProfesorId").value = respuesta.ProfesorId;
+                
+                document.getElementById("Nombre").value = respuesta.nombre;  
+                document.getElementById("ProfesorId").value = respuesta.profesorId;
             }
         });
     }
@@ -87,9 +88,6 @@
                     swal('Profesores', 'Usted a cancelo la accion', 'warning');
                 }
             });
-
-
-
     }
 
 

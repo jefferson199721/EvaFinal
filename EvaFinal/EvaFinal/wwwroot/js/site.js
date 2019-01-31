@@ -1,19 +1,14 @@
 ﻿$().ready(
-    ()=>    {
-    listaAlumnos();
-    });
-
-
-$().ready(
     () => {
-    listaProfesor();
+        listaAlumnos();
+        listaProfesor();
+    
     });
-//Ingreso de Nuevos/////
 var nuevo_Alumno = () => {
     var Nombres = document.getElementById('Nombres').value;
     var Apellidos = document.getElementById('Apellidos').value;
     var CursoParalelo = document.getElementById('CursoParalelo').value;
-    var NumMatricula = document.getElementById("NumMatricula").value;
+    var NumMatricula = document.getElementById("NumMatricula");
 
     if (NumMatricula == '') {
         var accion = '../Alumnos/Nuevo_Alumno_Controller';
@@ -37,19 +32,20 @@ var nuevo_Alumno = () => {
         }
     }
 }
+
 var nuevo_Profesor = () => {
     var Nombre = document.getElementById('Nombre').value;    
-    var ProfesorId = document.getElementById("ProfesorId").value;
 
+    var ProfesorId = document.getElementById('ProfesorId').value;
     if (ProfesorId == '') {
-        var accion = '../Profesor/Nuevo_Profesor_Controller';
+        var accion = '../Profesores/Nuevo_Profesor_Controller';
     } else {
-        var accion = '../Profesor/Nuevo_Profesor_Controller';
+        var accion = '../Profesores/Editar_Profesor_Controller';
     }
-    if (Nombre == '') {
 
-    } else {        
-    }
+    var clasepro = new ClaseProfesores(Nombre, accion);
+    clasepro.Nuevo_Profesor(ProfesorId);
+    
 }
 
 
@@ -60,8 +56,9 @@ var Un_Alumno = (NumMatricula) => {
     alumnos.Un_Alumnos(NumMatricula);
 }
 
+
 var Un_Profesor = (ProfesorId) => {
-    var accion = "Profesor/Un_Profesor_Controller";
+    var accion = "Profesores/Un_Profesor_Controller";
     var profesor = new ClaseProfesores('', accion);
     profesor.Un_Profesor(ProfesorId);
 }
@@ -71,22 +68,23 @@ var Un_Profesor = (ProfesorId) => {
 var eliminar_alumnos = (NumMatricula) => {
     var accion = "Alumnos/Eliminar_Alumnos_Controller";
     var alumnos = new ClaseAlumnos(' ', ' ', ' ', accion);
+
     cliente.eliminar_cliente(NumMatricula);
 }
 
 var eliminar_profesor = (ProfesorId) => {
-    var accion = "Profesor/Eliminar_Profesor_Controller";
+    var accion = "Profesores/Eliminar_Profesor_Controller";
     var profesor = new ClaseProfesores('', accion);
     profesor.eliminar_profesor(ProfesorId);
-
 }
 
 ////Ingreso de Listas/////
 var listaAlumnos = () => {
     var accion = 'Alumnos/Lista_Alumnos_Controller';
-    var alumnos = new ClaseAlumnos('', '', '', '', '', accion);
+    var alumnos = new ClaseAlumnos(' ', ' ', ' ', accion);
     alumnos.listaAlumnos();
 }
+
 //var listaproveedores = () => {
 //    var accion = '../Proveedors/Lista_Proveedor_Controller';
 //    var proveedor = new ClaseProveedores('', '', '', accion);
@@ -95,21 +93,28 @@ var listaAlumnos = () => {
 
 
 var listaProfesor = () => {
-    var accion = 'Profesor/Lista_Profesor_Controller';
+    var accion = 'Profesores/Lista_Profesor_Controller';
     var profesor = new ClaseProfesores('', accion);
     profesor.listaProfesor();
 }
-////Imprimir////// 
-var Imprimir_Alumnos = () => {
-    var contenido = document.getElementById('Imprimir_Alumnos').innerHTML;
-    var contenidopaginaoriginal = document.body.innerHTML;
-    document.body.innerHTML = contenido;
-    window.print();
-    document.body.innerHTML = contenidopaginaoriginal;
-    $('#Reporte').modal('hide');
-}
 
-////Quitar Botones al rato de Imprimir////
+    var listaproveedores = () => {
+        var accion = '../Proveedors/Lista_Proveedor_Controller';
+        var proveedor = new ClaseProveedores('', '', '', accion);
+        proveedor.listaProveedores();
+
+    }
+    ////Imprimir////// 
+    var Imprimir_Alumnos = () => {
+        var contenido = document.getElementById('Imprimir_Alumnos').innerHTML;
+        var contenidopaginaoriginal = document.body.innerHTML;
+        document.body.innerHTML = contenido;
+        window.print();
+        document.body.innerHTML = contenidopaginaoriginal;
+        $('#Reporte').modal('hide');
+    }
+
+    ////Quitar Botones al rato de Imprimir////
     var quitar_Botones = () => {
         var contador = 0;
         $('#Cuerpo_Alumnos tr').each(function () {
