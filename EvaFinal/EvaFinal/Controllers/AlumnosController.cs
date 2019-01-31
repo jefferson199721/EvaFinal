@@ -40,6 +40,7 @@ namespace EvaFinal.Controllers
         {
             return _alumnos_model.Un_Alumno_Model(NumMatricula);
         }
+
         public IdentityError Editar_Alumnos_Controller(int NumMatricula, string Nombres, string Apellidos,
             string CursoParalelo)
         {
