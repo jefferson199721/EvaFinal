@@ -7,160 +7,52 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EvaFinal.Data;
 using EvaFinal.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace EvaFinal.Controllers
 {
     public class hacesController : Controller
     {
-        private readonly ApplicationDbContext _context;
-
-        public hacesController(ApplicationDbContext context)
+        public class ProfesoresController : Controller
         {
-            _context = context;
-        }
+            private readonly ApplicationDbContext _context;
 
-        // GET: haces
-        public async Task<IActionResult> Index()
-        {
-            var applicationDbContext = _context.Hacer.Include(h => h.alumnos).Include(h => h.examen);
-            return View(await applicationDbContext.ToListAsync());
-        }
 
-        // GET: haces/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
+            private readonly haceModel _haces_model;
+
+            public ProfesoresController(ApplicationDbContext context)
             {
-                return NotFound();
+                _context = context;
+                _haces_model = new haceModel(context);
             }
 
-            var hace = await _context.Hacer
-                .Include(h => h.alumnos)
-                .Include(h => h.examen)
-                .SingleOrDefaultAsync(m => m.hacerid == id);
-            if (hace == null)
+            public async Task<IActionResult> Index()
             {
-                return NotFound();
+                return View(await _context.Hacer.ToListAsync());
             }
 
-            return View(hace);
-        }
-
-        // GET: haces/Create
-        public IActionResult Create()
-        {
-            ViewData["NumMatricula"] = new SelectList(_context.Alumnos, "NumMatricula", "NumMatricula");
-            ViewData["ExamenId"] = new SelectList(_context.Examen, "ExamenId", "ExamenId");
-            return View();
-        }
-
-        // POST: haces/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("hacerid,NumMatricula,ExamenId,Nota")] hace hace)
-        {
-            if (ModelState.IsValid)
+            public IdentityError Nuevo_Hace_Controller(string nota, int NumMatricula, int ExamenId)
             {
-                _context.Add(hace);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["NumMatricula"] = new SelectList(_context.Alumnos, "NumMatricula", "NumMatricula", hace.NumMatricula);
-            ViewData["ExamenId"] = new SelectList(_context.Examen, "ExamenId", "ExamenId", hace.ExamenId);
-            return View(hace);
-        }
+                return _haces_model.Nuevo_hace_Model(nota, NumMatricula, ExamenId);
 
-        // GET: haces/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
             }
 
-            var hace = await _context.Hacer.SingleOrDefaultAsync(m => m.hacerid == id);
-            if (hace == null)
+            public Profesor Un_Hace_Controller(int (hacerid)
             {
-                return NotFound();
+                return _haces_model.Un_Hace_Model(hacerid);
             }
-            ViewData["NumMatricula"] = new SelectList(_context.Alumnos, "NumMatricula", "NumMatricula", hace.NumMatricula);
-            ViewData["ExamenId"] = new SelectList(_context.Examen, "ExamenId", "ExamenId", hace.ExamenId);
-            return View(hace);
-        }
-
-        // POST: haces/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("hacerid,NumMatricula,ExamenId,Nota")] hace hace)
-        {
-            if (id != hace.hacerid)
+            public IdentityError Editar_Profesor_Controller(int hacerid, string Nombre)
             {
-                return NotFound();
-            }
+                return _haces_model.Editar_Hace_Model(hacerid, Nombre);
 
-            if (ModelState.IsValid)
+            }
+            public IdentityError Eliminar_hacer_Controller(int hacerid)
             {
-                try
-                {
-                    _context.Update(hace);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!haceExists(hace.hacerid))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                return _haces_model.Eliminar_hace_Model(hacerid);
             }
-            ViewData["NumMatricula"] = new SelectList(_context.Alumnos, "NumMatricula", "NumMatricula", hace.NumMatricula);
-            ViewData["ExamenId"] = new SelectList(_context.Examen, "ExamenId", "ExamenId", hace.ExamenId);
-            return View(hace);
-        }
-
-        // GET: haces/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
+            public List<object[]> Lista_hace_Controller()
             {
-                return NotFound();
+                return _haces_model.Lista_Hace_Model();
             }
-
-            var hace = await _context.Hacer
-                .Include(h => h.alumnos)
-                .Include(h => h.examen)
-                .SingleOrDefaultAsync(m => m.hacerid == id);
-            if (hace == null)
-            {
-                return NotFound();
-            }
-
-            return View(hace);
         }
-
-        // POST: haces/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var hace = await _context.Hacer.SingleOrDefaultAsync(m => m.hacerid == id);
-            _context.Hacer.Remove(hace);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool haceExists(int id)
-        {
-            return _context.Hacer.Any(e => e.hacerid == id);
-        }
-    }
 }
