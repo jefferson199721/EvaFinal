@@ -1,14 +1,17 @@
+
 ﻿$().ready(
     () => {
         listaAlumnos();
         listaProfesor();
     
     });
+
 var nuevo_Alumno = () => {
     var Nombres = document.getElementById('Nombres').value;
     var Apellidos = document.getElementById('Apellidos').value;
     var CursoParalelo = document.getElementById('CursoParalelo').value;
-    var NumMatricula = document.getElementById("NumMatricula");
+
+    var NumMatricula = document.getElementById('NumMatricula');
 
     if (NumMatricula == '') {
         var accion = '../Alumnos/Nuevo_Alumno_Controller';
@@ -80,10 +83,11 @@ var eliminar_profesor = (ProfesorId) => {
 
 ////Ingreso de Listas/////
 var listaAlumnos = () => {
-    var accion = 'Alumnos/Lista_Alumnos_Controller';
-    var alumnos = new ClaseAlumnos(' ', ' ', ' ', accion);
+    var accion = '../Alumnos/Lista_Alumnos_Controller';
+    var alumnos = new ClaseAlumnos('', '', '', accion);
     alumnos.listaAlumnos();
 }
+<<<<<<< HEAD
 
 //var listaproveedores = () => {
 //    var accion = '../Proveedors/Lista_Proveedor_Controller';
@@ -96,6 +100,21 @@ var listaProfesor = () => {
     var accion = 'Profesores/Lista_Profesor_Controller';
     var profesor = new ClaseProfesores('', accion);
     profesor.listaProfesor();
+=======
+var listaProfesor = () => {
+    var accion = '../Proveedors/Lista_Proveedor_Controller';
+    var profesor = new ClaseProfesores('', '', '', accion);
+    profesor.listaProfesor();
+}
+////Imprimir////// 
+var Imprimir_Alumnos = () => {
+    var contenido = document.getElementById('Imprimir_Alumnos').innerHTML;
+    var contenidopaginaoriginal = document.body.innerHTML;
+    document.body.innerHTML = contenido;
+    window.print();
+    document.body.innerHTML = contenidopaginaoriginal;
+    $('#Reporte').modal('hide');
+>>>>>>> f6a64abf2ce6a40695a139b0b3e9368b6d23df12
 }
 
     var listaproveedores = () => {

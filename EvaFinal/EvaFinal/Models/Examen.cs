@@ -8,7 +8,7 @@ namespace EvaFinal.Models
     public class Examen
     {
         public int ExamenId { get; set; }
-        public string Preguntas { get; set; }
+        public string NPreguntas { get; set; }
         public string Fecha { get; set; }
 
 
