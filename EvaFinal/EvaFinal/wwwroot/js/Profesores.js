@@ -15,11 +15,11 @@
                     { Nombre },
                     (respuesta) => {
                         if (respuesta.code == "ok") {
-                            swal('Profesor', respuesta.description, 'success');
+                            swal('Profesores', respuesta.description, 'success');
                             this.limpiar();
                         }
                         else {
-                            swal('Profesor', respuesta.description, 'Error');
+                            swal('Profesores', respuesta.description, 'Error');
                         }
                     });
             }
@@ -34,11 +34,11 @@
                     { Nombre },
                     (respuesta) => {
                         if (respuesta.code == "ok") {
-                            swal('Profesor', respuesta.description, 'success');
+                            swal('Profesores', respuesta.description, 'success');
                             this.limpiar();
                         }
                         else {
-                            swal('Profesor', respuesta.description, 'Error');
+                            swal('ProfProfesoresesor', respuesta.description, 'Error');
                         }
                     });
             }
@@ -76,15 +76,15 @@
                     $.post(accion, { ProfesorId },
                         (respuesta) => {
                             if (respuesta.code == "ok") {
-                                swal('Profesor', respuesta.description, 'success');
+                                swal('Profesores', respuesta.description, 'success');
                                 this.limpiar();
                             }
                             else {
-                                swal('Profesor', respuesta.description, 'Error');
+                                swal('Profesores', respuesta.description, 'Error');
                             }
                         });
                 } else {
-                    swal('Profesor', 'Usted a cancelo la accion', 'warning');
+                    swal('Profesores', 'Usted a cancelo la accion', 'warning');
                 }
             });
 
@@ -103,7 +103,7 @@
                 $.each(respuesta, (index, val) => {
                     $('#Cuerpo_Profesor').html(val[0])
                 });
-                // $('#cuerpo_Cliente').html(respuesta);
+                
             }
         );
     }

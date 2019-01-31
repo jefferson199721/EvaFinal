@@ -42,9 +42,9 @@ var nuevo_Profesor = () => {
     var ProfesorId = document.getElementById("ProfesorId").value;
 
     if (ProfesorId == '') {
-        var accion = '../Profesores/Nuevo_Profesor_Controller';
+        var accion = '../Profesor/Nuevo_Profesor_Controller';
     } else {
-        var accion = '../Profesores/Nuevo_Profesor_Controller';
+        var accion = '../Profesor/Nuevo_Profesor_Controller';
     }
     if (Nombre == '') {
 
@@ -61,7 +61,7 @@ var Un_Alumno = (NumMatricula) => {
 }
 
 var Un_Profesor = (ProfesorId) => {
-    var accion = "Profesores/Un_Profesor_Controller";
+    var accion = "Profesor/Un_Profesor_Controller";
     var profesor = new ClaseProfesores('', accion);
     profesor.Un_Profesor(ProfesorId);
 }
@@ -75,7 +75,7 @@ var eliminar_alumnos = (NumMatricula) => {
 }
 
 var eliminar_profesor = (ProfesorId) => {
-    var accion = "Profesores/Eliminar_Profesor_Controller";
+    var accion = "Profesor/Eliminar_Profesor_Controller";
     var profesor = new ClaseProfesores('', accion);
     profesor.eliminar_profesor(ProfesorId);
 
@@ -95,7 +95,7 @@ var listaAlumnos = () => {
 
 
 var listaProfesor = () => {
-    var accion = 'Profesores/Lista_Profesor_Controller';
+    var accion = 'Profesor/Lista_Profesor_Controller';
     var profesor = new ClaseProfesores('', accion);
     profesor.listaProfesor();
 }
