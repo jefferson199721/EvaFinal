@@ -98,8 +98,6 @@
 
 
     }
-
-
     listaAlumnos() {
         var accion = this.accion;
         $.post(
