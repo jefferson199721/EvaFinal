@@ -1,10 +1,8 @@
-
 ﻿$().ready(
     () => {
         listaAlumnos();
         listaProfesor();
-        listaPractica();
-    
+        listaPractica();    
     });
 
 var nuevo_Alumno = () => {
@@ -60,36 +58,34 @@ var nuevo_Practica = () => {
     var FechaDiseño = document.getElementById('FechaDiseño').value;
 
     var PracticaId = document.getElementById('PracticaId').value;
+
     if (PracticaId == '') {
         var accion = '../Practicas/Nuevo_Practica_Controller';
     } else {
-        if (Titulo == '') {
-            $('#control_Titulo').removeClass('hidden');
+        var accion = '../Practicas/Editar_Practica_Controller';        
+    }
+    if (Titulo == '') {
+        $('#control_Titulo').removeClass('hidden');
+    } else {
+        $('#control_Titulo').addClass('hidden');
+        if (Nota == '') {
+            $('#control_Nota').removeClass('hidden');
         } else {
-            $('#control_Titulo').addClass('hidden');
-            if (Nota == '') {
-                $('#control_Nota').removeClass('hidden');
+            $('#control_Nota').addClass('hidden');
+            if (Dificultad == '') {
+                $('#control_Dificultad').removeClass('hidden');
             } else {
-                $('#control_Nota').addClass('hidden');
-                if (Dificultad == '') {
-                    $('#control_Dificultad').removeClass('hidden');
+                $('#control_Dificultad').addClass('hidden');
+                if (FechaDiseño == '') {
+                    $('#control_FechaDiseño').removeClass('hidden');
                 } else {
-                    $('#control_Dificultad').addClass('hidden');
-                    if (FechaDiseño == '') {
-                        $('#control_FechaDiseño').removeClass('hidden');
-                    } else {
-                        $('#control_FechaDiseño').addClass('hidden');
-                        var accion = '../Practicas/Editar_Practica_Controller';
-                    }
+                    $('#control_FechaDiseño').addClass('hidden');
+                    var clasepra = new ClasePracticas(Titulo, Nota, Dificultad, FechaDiseño, accion);
+                    clasepra.Nuevo_Practica(PracticaId);
                 }
             }
-        }
-        
+        }        
     }
-
-    var clasepra = new ClasePracticas(Titulo, Nota, Dificultad, FechaDiseño, accion);
-    clasepra.Nuevo_Practica(PracticaId);
-
 }
 
 ////Ingreso de Un/////
@@ -151,7 +147,7 @@ var listaProfesor = () => {
 
 var listaPractica = () => {
     var accion = 'Practicas/Lista_Practica_Controller';
-    var practicas = new ClasePracticas('','','','', accion);
+    var practicas = new ClasePracticas('', '', '', '', accion);
     practicas.listaPractica();
 }
 
@@ -176,4 +172,4 @@ var listaPractica = () => {
 
         });
     }
-}
+
