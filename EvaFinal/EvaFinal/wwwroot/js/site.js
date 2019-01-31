@@ -46,6 +46,11 @@ var Un_Alumno = (NumMatricula) => {
     alumnos.Un_Alumnos(NumMatricula);
 }
 
+//var Un_Profesor = (ProfesorId) => {
+//    var accion = "Profesores/Un_Profesor_Controller";
+//    var profesor = new ClaseProfesor
+//}
+
 
 ////Ingreso de Eliminar/////
 var eliminar_alumnos = (NumMatricula) => {
@@ -65,7 +70,7 @@ var listaproveedores = () => {
     var proveedor = new ClaseProveedores('', '', '', accion);
     proveedor.listaProveedores();
 }
-
+////Imprimir////// 
 var Imprimir_Alumnos = () => {
     var contenido = document.getElementById('Imprimir_Alumnos').innerHTML;
     var contenidopaginaoriginal = document.body.innerHTML;
@@ -75,7 +80,7 @@ var Imprimir_Alumnos = () => {
     $('#Reporte').modal('hide');
 }
 
-
+////Quitar Botones al rato de Imprimir////
     var quitar_Botones = () => {
         var contador = 0;
         $('#Cuerpo_Alumnos tr').each(function () {

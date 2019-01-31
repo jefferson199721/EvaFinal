@@ -24,7 +24,6 @@ namespace EvaFinal.Controllers
             _profesor_model = new ProfesoresModel(context);
         }
 
-        // GET: Alumnos
         public async Task<IActionResult> Index()
         {
             return View(await _context.Alumnos.ToListAsync());
