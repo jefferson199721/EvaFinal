@@ -13,31 +13,17 @@ var nuevo_Alumno = () => {
     var NumMatricula = document.getElementById('NumMatricula').value;
 
     if (NumMatricula == '') {
-        var accion = '../Alumnos/Nuevo_Alumno_Controller';
+        var accion = '../Alumnos/Nuevo_Alumnos_Controller';
     } else {
-        var accion = '../Alumnos/Editar_Alumno_Controller';
+        var accion = '../Alumnos/Editar_Alumnos_Controller';
     }
   
     var al = new ClaseAlumnos(Nombres, Apellidos, CursoParalelo, accion);
     al.Nuevo_Alumno(NumMatricula);
 
-    if (Nombres == '') {
-       
-    } else {
-       
-        if (Apellidos == '') {
-            $('#control_Nombre').removeClass('hidden');
-        } else {
-            $('#control_Nombre').addClass('hidden');
-            if (CursoParalelo == '') {
-                $('#control_Apellido').removeClass('hidden');
-            } else {
-                $('#control_Apellido').addClass('hidden');
-                
-            }
-        }
+    
     }
-}
+
 
 var nuevo_Profesor = () => {
     var Nombre = document.getElementById('Nombre').value;    
