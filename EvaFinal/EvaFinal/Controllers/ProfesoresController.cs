@@ -26,7 +26,7 @@ namespace EvaFinal.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Alumnos.ToListAsync());
+            return View(await _context.Profesor.ToListAsync());
         }
 
         public IdentityError Nuevo_Profesor_Controller(string Nombre)

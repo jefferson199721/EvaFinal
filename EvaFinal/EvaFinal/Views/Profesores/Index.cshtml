@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EvaFinal.Models.Profesor>
+﻿
 @{
     ViewData["Title"] = "Index";
 }
@@ -34,15 +34,13 @@
             </div>
             <div class="modal-body">
                 <form>
-                    <input type="hidden" name="ClienteId" id="ClienteId" />
+                    <input type="hidden" name="ProfesorId" id="ProfesorId"/>
                     <div class="form-group">
                         <label class="control-label">Nombre</label>
                         <input id="Nombre" name="Nombre" class="form-control"
                                type="text" placeholder="Ingrese el nombre del profesor" />
                         <span class="label-danger hidden">Campo Obligatorio</span>
                     </div>                   
-
-
                 </form>
             </div>
             <div class="modal-footer">

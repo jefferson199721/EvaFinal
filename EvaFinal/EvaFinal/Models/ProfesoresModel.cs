@@ -37,12 +37,12 @@ namespace EvaFinal.Models
                 };
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 resultado = new IdentityError()
                 {
                     Code = "error",
-                    Description = ex.Message.ToString()
+                    Description = "No Se Guardo con Exito"
                 };
 
             }

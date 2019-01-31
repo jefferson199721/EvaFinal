@@ -94,9 +94,6 @@
                     swal('Alumnos', 'Usted a cancelo la accion', 'warning');
                 }
             });
-
-
-
     }
     listaAlumnos() {
         var accion = this.accion;

@@ -34,7 +34,7 @@
                     { Nombre },
                     (respuesta) => {
                         if (respuesta.code == "ok") {
-                            swal('Profesor', respuesta.description, 'success');
+                            swal('Profesor', "Se edito con exito", 'success');
                             this.limpiar();
                         }
                         else {
@@ -56,8 +56,9 @@
             url: accion,
             data: { ProfesorId },
             success: (respuesta) => {
-                document.getElementById("Nombre").value = respuesta.Nombre;  
-                document.getElementById("ProfesorId").value = respuesta.ProfesorId;
+                
+                document.getElementById("Nombre").value = respuesta.nombre;  
+                document.getElementById("ProfesorId").value = respuesta.profesorId;
             }
         });
     }
@@ -76,20 +77,17 @@
                     $.post(accion, { ProfesorId },
                         (respuesta) => {
                             if (respuesta.code == "ok") {
-                                swal('Profesor', respuesta.description, 'success');
+                                swal('Profesores', respuesta.description, 'success');
                                 this.limpiar();
                             }
                             else {
-                                swal('Profesor', respuesta.description, 'Error');
+                                swal('Profesores', respuesta.description, 'Error');
                             }
                         });
                 } else {
-                    swal('Profesor', 'Usted a cancelo la accion', 'warning');
+                    swal('Profesores', 'Usted a cancelo la accion', 'warning');
                 }
             });
-
-
-
     }
 
 
@@ -103,7 +101,7 @@
                 $.each(respuesta, (index, val) => {
                     $('#Cuerpo_Profesor').html(val[0])
                 });
-                // $('#cuerpo_Cliente').html(respuesta);
+                
             }
         );
     }
