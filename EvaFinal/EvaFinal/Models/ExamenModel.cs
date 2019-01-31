@@ -140,11 +140,11 @@ namespace EvaFinal.Models
                 dato += "<tr>" +
                     "<td>" + item.NPreguntas + "</td>" +
                     "<td>" + item.Fecha + "</td>" +
-                    "<td>  <a data-toggle='modal' data-target='#Ingreso_Profesor' " +
-                    "onclick ='Un_Profesor(" + item.ExamenId + ")' " +
-                    "class='btn btn-primary'>Edit</a> |" +
-                    "<a onclick='eliminar_profesor(" + item.ExamenId + ")'" +
-                    "class='btn btn-danger'>Delete</a></td>" +
+                    "<td>  <a data-toggle='modal' data-target='#Ingreso_Examen' " +
+                    "onclick ='Un_Examen(" + item.ExamenId + ")' " +
+                    "class='btn btn-primary'>Editar</a> |" +
+                    "<a onclick='eliminar_examen(" + item.ExamenId + ")'" +
+                    "class='btn btn-danger'>Eliminar</a></td>" +
                     "</tr>";
             }
             object[] objeto = { dato };

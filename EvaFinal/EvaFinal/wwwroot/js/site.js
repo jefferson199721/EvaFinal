@@ -10,30 +10,20 @@ var nuevo_Alumno = () => {
     var Apellidos = document.getElementById('Apellidos').value;
     var CursoParalelo = document.getElementById('CursoParalelo').value;
 
-    var NumMatricula = document.getElementById('NumMatricula');
+    var NumMatricula = document.getElementById('NumMatricula').value;
 
     if (NumMatricula == '') {
-        var accion = '../Alumnos/Nuevo_Alumno_Controller';
+        var accion = '../Alumnos/Nuevo_Alumnos_Controller';
     } else {
-        var accion = '../Alumnos/Editar_Alumno_Controller';
+        var accion = '../Alumnos/Editar_Alumnos_Controller';
     }
-    if (Nombres == '') {
-       
-    } else {
-       
-        if (Apellidos == '') {
-            $('#control_Nombre').removeClass('hidden');
-        } else {
-            $('#control_Nombre').addClass('hidden');
-            if (CursoParalelo == '') {
-                $('#control_Apellido').removeClass('hidden');
-            } else {
-                $('#control_Apellido').addClass('hidden');
-                
-            }
-        }
+  
+    var al = new ClaseAlumnos(Nombres, Apellidos, CursoParalelo, accion);
+    al.Nuevo_Alumno(NumMatricula);
+
+    
     }
-}
+
 
 var nuevo_Profesor = () => {
     var Nombre = document.getElementById('Nombre').value;    
@@ -51,41 +41,43 @@ var nuevo_Profesor = () => {
 }
 
 
-var nuevo_Practica = () => {
+var Practica_Nueva = () => {
     var Nombre = document.getElementById('Titulo').value;
     var Nota = document.getElementById('Nota').value;
     var Dificultad = document.getElementById('Dificultad').value;
     var FechaDiseño = document.getElementById('FechaDiseño').value;
 
     var PracticaId = document.getElementById('PracticaId').value;
-
-    if (PracticaId == '') {
-        var accion = '../Practicas/Nuevo_Practica_Controller';
-    } else {
-        var accion = '../Practicas/Editar_Practica_Controller';        
-    }
-    if (Titulo == '') {
-        $('#control_Titulo').removeClass('hidden');
-    } else {
-        $('#control_Titulo').addClass('hidden');
-        if (Nota == '') {
-            $('#control_Nota').removeClass('hidden');
-        } else {
-            $('#control_Nota').addClass('hidden');
-            if (Dificultad == '') {
-                $('#control_Dificultad').removeClass('hidden');
-            } else {
-                $('#control_Dificultad').addClass('hidden');
-                if (FechaDiseño == '') {
-                    $('#control_FechaDiseño').removeClass('hidden');
-                } else {
-                    $('#control_FechaDiseño').addClass('hidden');
-                    var clasepra = new ClasePracticas(Titulo, Nota, Dificultad, FechaDiseño, accion);
-                    clasepra.Nuevo_Practica(PracticaId);
-                }
-            }
-        }        
-    }
+    var accion = 'Practicas/Nuevo_Practica_Controller';
+    var clasepra = new ClasePracticas(Titulo, Nota, Dificultad, FechaDiseño, accion);
+                 clasepra.Nuevo_Practica(PracticaId);
+    //if (PracticaId == '') {
+    //    var accion = 'Practicas/Nuevo_Practica_Controller';
+    //} else {
+    //    var accion = 'Practicas/Editar_Practica_Controller';        
+    //}
+    //if (Titulo == '') {
+    //    $('#control_Titulo').removeClass('hidden');
+    //} else {
+    //    $('#control_Titulo').addClass('hidden');
+    //    if (Nota == '') {
+    //        $('#control_Nota').removeClass('hidden');
+    //    } else {
+    //        $('#control_Nota').addClass('hidden');
+    //        if (Dificultad == '') {
+    //            $('#control_Dificultad').removeClass('hidden');
+    //        } else {
+    //            $('#control_Dificultad').addClass('hidden');
+    //            if (FechaDiseño == '') {
+    //                $('#control_FechaDiseño').removeClass('hidden');
+    //            } else {
+    //                $('#control_FechaDiseño').addClass('hidden');
+    //                var clasepra = new ClasePracticas(Titulo, Nota, Dificultad, FechaDiseño, accion);
+    //                clasepra.Nuevo_Practica(PracticaId);
+    //            }
+    //        }
+    //    }        
+    //}
 }
 
 ////Ingreso de Un/////
@@ -171,5 +163,45 @@ var listaPractica = () => {
             $(celdas[5]).addClass('hidden');
 
         });
+}
+
+
+var nuevo_Examen = () => {
+    var NPreguntas = document.getElementById('NPreguntas').value;
+    var Fecha = document.getElementById('Fecha').value;
+
+    var ExamenId = document.getElementById('ExamenId').value;
+    if (ExamenId == '') {
+        var accion = '../Examenes/Nuevo_Examen_Controller';
+    } else {
+        var accion = '../Examenes/Editar_Examen_Controller';
     }
+    var claseexamen = new ClaseExamen(NPreguntas, Fecha, accion);
+    claseexamen.Nuevo_Examen(ExamenId);
+
+}
+
+
+
+var Un_Examen = (ExamenId) => {
+    var accion = "Examenes/Un_Examen_Controller";
+    var examen = new ClaseExamen('', '', accion);
+    examen.Un_Examen(ExamenId);
+}
+
+
+
+
+var eliminar_examen = (ExamenId) => {
+    var accion = "Examenes/Eliminar_Examen_Controlle";
+    var examen = new ClaseExamen('', '', accion);
+    examen.eliminar_examen(ExamenId);
+}
+
+
+var listaExamen = () => {
+    var accion = 'Examenes/Lista_Examen_Controller';
+    var examen = new ClaseExamen('', '', accion);
+    examen.listaExamen();
+}
 
