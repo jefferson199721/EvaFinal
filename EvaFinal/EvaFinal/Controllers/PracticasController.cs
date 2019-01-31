@@ -28,9 +28,9 @@ namespace EvaFinal.Controllers
             return View(await _context.Practica.ToListAsync());
         }
 
-        public IdentityError Nuevo_Practica_Controller(string Titulo, string Nota, string Dificultad, DateTime Fecha)
+        public IdentityError Nuevo_Practica_Controller(string Titulo, string Nota, string Dificultad, DateTime FechaDiseño)
         {
-            return _practicas_model.Nuevo_Practica_Model(Titulo, Nota, Dificultad, Fecha);
+            return _practicas_model.Nuevo_Practica_Model(Titulo, Nota, Dificultad, FechaDiseño);
         }
 
         public Practica Un_Practica_Controller(int PracticaId)

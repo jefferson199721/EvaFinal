@@ -22,7 +22,8 @@ var nuevo_Alumno = () => {
     al.Nuevo_Alumno(NumMatricula);
 
     
-    }
+}
+
 
 
 var nuevo_Profesor = () => {
@@ -42,15 +43,25 @@ var nuevo_Profesor = () => {
 
 
 var Practica_Nueva = () => {
-    var Nombre = document.getElementById('Titulo').value;
+    var Titulo = document.getElementById('Titulo').value;
     var Nota = document.getElementById('Nota').value;
     var Dificultad = document.getElementById('Dificultad').value;
     var FechaDiseño = document.getElementById('FechaDiseño').value;
 
     var PracticaId = document.getElementById('PracticaId').value;
-    var accion = 'Practicas/Nuevo_Practica_Controller';
-    var clasepra = new ClasePracticas(Titulo, Nota, Dificultad, FechaDiseño, accion);
-                 clasepra.Nuevo_Practica(PracticaId);
+
+    if (PracticaId == '') {
+        var accion = '../Practicas/Nuevo_Practica_Controller';
+    } else {
+        var accion = '../Practicas/Editar_Practica_Controller';
+    }
+
+    var pra = new ClasePracticas(Titulo, Nota, Dificultad, FechaDiseño, accion);
+    pra.Nuevo_Practica(PracticaId);
+
+
+}
+
     //if (PracticaId == '') {
     //    var accion = 'Practicas/Nuevo_Practica_Controller';
     //} else {
@@ -78,7 +89,7 @@ var Practica_Nueva = () => {
     //        }
     //    }        
     //}
-}
+//}
 
 ////Ingreso de Un/////
 var Un_Alumno = (NumMatricula) => {
