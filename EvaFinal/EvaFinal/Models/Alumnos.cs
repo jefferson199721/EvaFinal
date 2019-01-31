@@ -7,7 +7,7 @@ namespace EvaFinal.Models
 {
     public class Alumnos
     {
-        public int AlumnoId { get; set; }
+        public int NumMatricula { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
         public string Telefono { get; set; }
