@@ -9,8 +9,10 @@ namespace EvaFinal.Models
     {
         public int realizaId { get; set; }
         public int AlumnosId { get; set; }
+        public Alumnos alumnos { get; set; }
         public int PracticaId { get; set; }
-        public string fecha { get; set; }
+        public Practica practica { get; set; }
+        public DateTime fecha { get; set; }
         public string nota { get; set; }
     }
 }
