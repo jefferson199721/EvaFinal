@@ -65,17 +65,17 @@
             data: { PracticaId },
             success: (respuesta) => {
 
-                document.getElementById("Titulo").value = respuesta.Titulo;
-                document.getElementById("Nota").value = respuesta.Nota;
-                document.getElementById("Dificultad").value = respuesta.Dificultad;
-                document.getElementById("FechaDiseño").value = respuesta.FechaDiseño;
+                document.getElementById("Titulo").value = respuesta.titulo;
+                document.getElementById("Nota").value = respuesta.nota;
+                document.getElementById("Dificultad").value = respuesta.dificultad;
+                document.getElementById("FechaDiseño").value = respuesta.fechaDiseño;
 
                 document.getElementById("PracticaId").value = respuesta.PracticaId;
             }
         });
     }
 
-    eliminar_profesor(PracticaId) {
+    eliminar_practica(PracticaId) {
         swal({
             title: "¿Eliminar Practicas?",
             text: "Esta seguro que desea eliminar la practica..!",
@@ -89,15 +89,15 @@
                     $.post(accion, { PracticaId },
                         (respuesta) => {
                             if (respuesta.code == "ok") {
-                                swal('Practica', respuesta.description, 'success');
+                                swal('Practicas', respuesta.description, 'success');
                                 this.limpiar();
                             }
                             else {
-                                swal('Practica', respuesta.description, 'Error');
+                                swal('Practicas', respuesta.description, 'Error');
                             }
                         });
                 } else {
-                    swal('Practica', 'Usted a cancelo la accion', 'warning');
+                    swal('Practicas', 'Usted a cancelo la accion', 'warning');
                 }
             });
     }
