@@ -1,0 +1,65 @@
+﻿@model IEnumerable<EvaFinal.Models.Examen>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Lista de Exames</h2>
+
+<p>
+    <a class="btn btn-primary" data-toggle="modal" data-target="#Ingreso_Examen">Nuevo Profesor</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                N Preguntas
+            </th>
+
+            <th>
+                Fecha
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="Cuerpo_Examen"></tbody>
+</table>
+
+<div class="modal fade" id="Ingreso_Examen" tabindex="-1" role="dialog" aria-labelledby="EtiquetaModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="EtiquetaModal">
+                    Ingreso de Examen
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="hidden" name="ExamenId" id="ExamenId" />
+                    <div class="form-group">
+                        <label class="control-label">N Preguntas</label>
+                        <input id="NPreguntas" name="NPreguntas" class="form-control"
+                               type="text" placeholder="Ingrese el N Preguntas" />
+                        <span class="label-danger hidden">Campo Obligatorio</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Fecha</label>
+                        <input id="Fecha" name="Fecha" class="form-control"
+                               type="date"/>
+                        
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="">Cerrar</button>
+                <button id="graba" type="button" class="btn btn-primary" onclick="nuevo_Examen()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
