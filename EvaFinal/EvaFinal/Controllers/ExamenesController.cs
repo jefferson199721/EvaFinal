@@ -35,10 +35,7 @@ namespace EvaFinal.Controllers
             return _Examen_model.Un_Examen_Model(ExamenId);
         }
 
-        //public Profesor Un_Examen_Controller(int ExamenId)
-        //{
-        //    //return _Examen_model.Un_Examen_Model(ExamenId);
-        //}
+      
 
         public IdentityError Editar_Examen_Controller(int ExamenId, string NPreguntas,string Fecha)
         {

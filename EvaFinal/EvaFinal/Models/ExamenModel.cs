@@ -55,7 +55,7 @@ namespace EvaFinal.Models
 
         public Examen Un_Examen_Model(int ExamenId)
         {
-            // return _contexto.Cliente.Where(c => c.ClienteId == ClienteId).FirstOrDefault();
+            
             Examen examen = (from pr in _contexto.Examen
                                  where pr.ExamenId == ExamenId
                                  select pr).FirstOrDefault();
