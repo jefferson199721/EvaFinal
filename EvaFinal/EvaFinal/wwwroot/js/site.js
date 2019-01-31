@@ -13,7 +13,7 @@ var nuevo_Alumno = () => {
     var Nombres = document.getElementById('Nombres').value;
     var Apellidos = document.getElementById('Apellidos').value;
     var CursoParalelo = document.getElementById('CursoParalelo').value;
-    var NumMatricula = document.getElementById("NumMatricula");
+    var NumMatricula = document.getElementById("NumMatricula").value;
 
     if (NumMatricula == '') {
         var accion = '../Alumnos/Nuevo_Alumno_Controller';
