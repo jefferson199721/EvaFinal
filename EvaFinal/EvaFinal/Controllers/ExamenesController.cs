@@ -29,7 +29,7 @@ namespace EvaFinal.Controllers
             return _Examen_model.Nuevo_Examen_Model(NPreguntas,Fecha);
 
         }
-        public Profesor Un_Examen_Controller(int ExamenId)
+        public Examen Un_Examen_Controller(int ExamenId)
         {
             return _Examen_model.Un_Examen_Model(ExamenId);
         }
