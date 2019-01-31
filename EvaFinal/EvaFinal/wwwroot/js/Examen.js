@@ -59,9 +59,9 @@
             url: accion,
             data: { ExamenId },
             success: (respuesta) => {
-                document.getElementById("Npreguntas").value = respuesta.NPreguntas;
+                document.getElementById("NPreguntas").value = respuesta.NPreguntas;
                 document.getElementById("Fecha").value = respuesta.Fecha;
-                document.getElementById("ExamenId").value = respuesta.ProfesorId;
+                document.getElementById("ExamenId").value = respuesta.ExamenId;
             }
         });
     }
