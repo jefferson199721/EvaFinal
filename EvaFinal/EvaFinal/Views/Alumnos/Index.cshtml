@@ -2,10 +2,10 @@
 @{
     ViewData["Title"] = "Index";
 }
-<h2>Lista de Clientes</h2>
+<h2>Lista de Alumnos</h2>
 
 <p>
-    <a class="btn btn-primary" data-toggle="modal" data-target="#Ingreso_Cliente">Nuevo Cliente</a>
+    <a class="btn btn-primary" data-toggle="modal" data-target="#Ingreso_Alumnos">Nuevo Alumno</a>
 </p>
 <table class="table">
     <thead>
@@ -17,20 +17,9 @@
                 Apellidos
             </th>
             <th>
-                Telefono
+                Curso Paralelo
             </th>
-            <th>
-                Correo
-            </th>
-            <th>
-                Categoria
-            </th>
-            <th>
-                Garantia
-            </th>
-            <th>
-                FechaIngreso
-            </th>
+           
             <th></th>
         </tr>
     </thead>
@@ -67,7 +56,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label">Telefono</label>
+                        <label class="control-label">Curso Paralelo</label>
                         <input id="CursoParalelo" name="CursoParalelo" class="form-control"
                                type="text" placeholder="Ingrese el Telefono del Paralelo del alumno" />
                         <span id="control_Apellido" class="label-danger hidden">Campo Obligatorio</span>
