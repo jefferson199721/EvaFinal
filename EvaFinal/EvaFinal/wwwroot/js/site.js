@@ -17,7 +17,6 @@ var nuevo_Alumno = () => {
 
     if (NumMatricula == '') {
         var accion = '../Alumnos/Nuevo_Alumno_Controller';
-        var accion = '../Alumnos/Nuevo_Alumno_Controller';
     } else {
         var accion = '../Alumnos/Editar_Alumno_Controller';
     }
@@ -47,22 +46,31 @@ var Un_Alumno = (NumMatricula) => {
     alumnos.Un_Alumnos(NumMatricula);
 }
 
+//var Un_Profesor = (ProfesorId) => {
+//    var accion = "Profesores/Un_Profesor_Controller";
+//    var profesor = new ClaseProfesor
+//}
+
 
 ////Ingreso de Eliminar/////
 var eliminar_alumnos = (NumMatricula) => {
     var accion = "Alumnos/Eliminar_Alumnos_Controller";
-    var alumnos = new ClaseAlumnos(' ',' ',' ',accion);
-    alumnos.eliminar_alumnos(NumMatricula);
+    var alumnos = new ClaseAlumnos(' ', ' ', ' ', accion);
+    cliente.eliminar_cliente(NumMatricula);
 }
 
 ////Ingreso de Listas/////
 var listaAlumnos = () => {
     var accion = 'Alumnos/Lista_Alumnos_Controller';
-    var alumnos = new ClaseAlumnos('', '', '', accion);
+    var alumnos = new ClaseAlumnos('', '', '', '', '', accion);
     alumnos.listaAlumnos();
 }
-
-
+var listaproveedores = () => {
+    var accion = '../Proveedors/Lista_Proveedor_Controller';
+    var proveedor = new ClaseProveedores('', '', '', accion);
+    proveedor.listaProveedores();
+}
+////Imprimir////// 
 var Imprimir_Alumnos = () => {
     var contenido = document.getElementById('Imprimir_Alumnos').innerHTML;
     var contenidopaginaoriginal = document.body.innerHTML;
@@ -72,7 +80,7 @@ var Imprimir_Alumnos = () => {
     $('#Reporte').modal('hide');
 }
 
-
+////Quitar Botones al rato de Imprimir////
     var quitar_Botones = () => {
         var contador = 0;
         $('#Cuerpo_Alumnos tr').each(function () {
