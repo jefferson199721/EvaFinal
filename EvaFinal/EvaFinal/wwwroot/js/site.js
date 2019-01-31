@@ -2,7 +2,8 @@
     () => {
         listaAlumnos();
         listaProfesor();
-        listaPractica();    
+        listaPractica();
+        listaExamen();
     });
 
 var nuevo_Alumno = () => {
@@ -181,23 +182,17 @@ var nuevo_Examen = () => {
 
 }
 
-
-
 var Un_Examen = (ExamenId) => {
     var accion = "Examenes/Un_Examen_Controller";
     var examen = new ClaseExamen('', '', accion);
     examen.Un_Examen(ExamenId);
 }
 
-
-
-
 var eliminar_examen = (ExamenId) => {
     var accion = "Examenes/Eliminar_Examen_Controlle";
     var examen = new ClaseExamen('', '', accion);
     examen.eliminar_examen(ExamenId);
 }
-
 
 var listaExamen = () => {
     var accion = 'Examenes/Lista_Examen_Controller';
