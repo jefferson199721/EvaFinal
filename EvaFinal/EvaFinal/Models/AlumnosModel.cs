@@ -22,7 +22,7 @@ namespace EvaFinal.Models
             string CursoParalelo)
         {
             IdentityError resultado = new IdentityError();
-            Alumnos cliente = new Alumnos()
+            Alumnos alumnos = new Alumnos()
             {
                 Nombres = Nombres,
                 Apellidos = Apellidos,
@@ -32,7 +32,7 @@ namespace EvaFinal.Models
             try
             {
 
-                _contexto.Alumnos.Add(cliente);
+                _contexto.Alumnos.Add(alumnos);
                 _contexto.SaveChanges();
                 resultado = new IdentityError()
                 {
@@ -53,42 +53,32 @@ namespace EvaFinal.Models
             return resultado;
         }
 
-        public Cliente Un_Cliente_Model(int ClienteId)
+        public Alumnos Un_Alumno_Model(int NumMatricula)
         {
             // return _contexto.Cliente.Where(c => c.ClienteId == ClienteId).FirstOrDefault();
-            Cliente cliente = (from c in _contexto.Cliente
-                               where c.ClienteId == ClienteId
-                               select c).FirstOrDefault();
-            return cliente;
+            Alumnos alumnos = (from al in _contexto.Alumnos
+                               where al.NumMatricula == NumMatricula
+                               select al).FirstOrDefault();
+            return alumnos;
         }
 
-        public IdentityError Editar_Cliente_Model(
-            int ClienteId,
+        public IdentityError Editar_Alumno_Model(
+            int NumMatricula,
             string Nombres,
             string Apellidos,
-            string Telefono,
-            string Correo,
-            string Categoria,
-            string Garantia,
-            DateTime FechaIngreso)
+            string CursoParalelo)
         {
             IdentityError resultado = new IdentityError();
-            Cliente cliente = new Cliente()
+            Alumnos alumnos = new Alumnos()
             {
                 Nombres = Nombres,
                 Apellidos = Apellidos,
-                Telefono = Telefono,
-                Correo = Correo,
-                Categoria = Categoria,
-                Garantia = Garantia,
-                FechaIngreso = FechaIngreso,
-                ClienteId = ClienteId
-
-
+                CursoParalelo = CursoParalelo,
+                NumMatricula = NumMatricula
             };
             try
             {
-                _contexto.Cliente.Update(cliente);
+                _contexto.Alumnos.Update(alumnos);
                 _contexto.SaveChanges();
                 resultado = new IdentityError()
                 {
@@ -108,17 +98,17 @@ namespace EvaFinal.Models
             }
             return resultado;
         }
-        public IdentityError Eliminar_Cliente_Model(
-           int clienteId)
+        public IdentityError Eliminar_Alumnos_Model(
+           int NumMatricula)
         {
             IdentityError resultado = new IdentityError();
-            Cliente cliente = new Cliente()
+            Alumnos alumnos = new Alumnos()
             {
-                ClienteId = clienteId
+                NumMatricula = NumMatricula
             };
             try
             {
-                _contexto.Cliente.Remove(cliente);
+                _contexto.Alumnos.Remove(alumnos);
                 _contexto.SaveChanges();
                 resultado = new IdentityError()
                 {
@@ -141,27 +131,23 @@ namespace EvaFinal.Models
 
 
 
-        public List<object[]> Lista_Cliente_Model()
+        public List<object[]> Lista_Alumnos_Model()
         {
             List<object[]> listaRegresa = new List<object[]>();
             string dato = "";
 
-            var clientes = _contexto.Cliente.ToList();
+            var alumnos = _contexto.Alumnos.ToList();
 
-            foreach (var item in clientes)
+            foreach (var item in alumnos)
             {
                 dato += "<tr>" +
                     "<td>" + item.Nombres + "</td>" +
                     "<td>" + item.Apellidos + "</td>" +
-                    "<td>" + item.Telefono + "</td>" +
-                    "<td>" + item.Correo + "</td>" +
-                    "<td>" + item.Categoria + "</td>" +
-                    "<td>" + item.Garantia + "</td>" +
-                    "<td>" + item.FechaIngreso + "</td>" +
-                    "<td>  <a data-toggle='modal' data-target='#Ingreso_Cliente' " +
-                    "onclick ='Un_Cliente(" + item.ClienteId + ")' " +
+                    "<td>" + item.CursoParalelo + "</td>" +
+                    "<td>  <a data-toggle='modal' data-target='#Ingreso_Alumnos' " +
+                    "onclick ='Un_Cliente(" + item.NumMatricula + ")' " +
                     "class='btn btn-primary'>Edit</a> |" +
-                    "<a onclick='eliminar_cliente(" + item.ClienteId + ")'" +
+                    "<a onclick='eliminar_cliente(" + item.NumMatricula + ")'" +
                     "class='btn btn-danger'>Delete</a></td>" +
                     "</tr>";
             }
