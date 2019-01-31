@@ -4,11 +4,11 @@
     });
 
 
-//$().ready(
-//    () => {
-//    listaproveedores();
-//    });
-////Ingreso de Nuevos/////
+$().ready(
+    () => {
+    listaProfesor();
+    });
+//Ingreso de Nuevos/////
 var nuevo_Alumno = () => {
     var Nombres = document.getElementById('Nombres').value;
     var Apellidos = document.getElementById('Apellidos').value;
@@ -37,6 +37,20 @@ var nuevo_Alumno = () => {
         }
     }
 }
+var Nuevo_Profesor = () => {
+    var Nombre = document.getElementById('Nombre').value;    
+    var ProfesorId = document.getElementById("ProfesorId").value;
+
+    if (ProfesorId == '') {
+        var accion = '../Profesores/Nuevo_Profesor_Controller';
+    } else {
+        var accion = '../Profesores/Nuevo_Profesor_Controller';
+    }
+    if (Nombre == '') {
+
+    } else {        
+    }
+}
 
 
 ////Ingreso de Un/////
@@ -46,10 +60,11 @@ var Un_Alumno = (NumMatricula) => {
     alumnos.Un_Alumnos(NumMatricula);
 }
 
-//var Un_Profesor = (ProfesorId) => {
-//    var accion = "Profesores/Un_Profesor_Controller";
-//    var profesor = new ClaseProfesor
-//}
+var Un_Profesor = (ProfesorId) => {
+    var accion = "Profesores/Un_Profesor_Controller";
+    var profesor = new ClaseProfesores('', accion);
+    profesor.Un_Profesor(ProfesorId);
+}
 
 
 ////Ingreso de Eliminar/////
@@ -57,6 +72,13 @@ var eliminar_alumnos = (NumMatricula) => {
     var accion = "Alumnos/Eliminar_Alumnos_Controller";
     var alumnos = new ClaseAlumnos(' ', ' ', ' ', accion);
     cliente.eliminar_cliente(NumMatricula);
+}
+
+var eliminar_profesor = (ProfesorId) => {
+    var accion = "Profesores/Eliminar_Profesor_Controller";
+    var profesor = new ClaseProfesores('', accion);
+    profesor.eliminar_profesor(ProfesorId);
+
 }
 
 ////Ingreso de Listas/////
@@ -69,6 +91,13 @@ var listaproveedores = () => {
     var accion = '../Proveedors/Lista_Proveedor_Controller';
     var proveedor = new ClaseProveedores('', '', '', accion);
     proveedor.listaProveedores();
+}
+
+
+var listaProfesor = () => {
+    var accion = 'Profesores/Lista_Profesor_Controller';
+    var profesor = new ClaseProfesores('', accion);
+    profesor.listaProfesor();
 }
 ////Imprimir////// 
 var Imprimir_Alumnos = () => {
