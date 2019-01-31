@@ -12,7 +12,8 @@ namespace EvaFinal.Models
         public string PracticaId { get; set; }
         public string Fecha { get; set; }
         public string Detalle { get; set; }
+        public string Detal { get; set; }
 
-    
-}
+
+    }
 }
