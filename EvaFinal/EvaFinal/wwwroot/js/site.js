@@ -1,9 +1,8 @@
-
 ﻿$().ready(
     () => {
         listaAlumnos();
         listaProfesor();
-    
+        listaPractica();    
     });
 
 var nuevo_Alumno = () => {
@@ -52,6 +51,43 @@ var nuevo_Profesor = () => {
 }
 
 
+var nuevo_Practica = () => {
+    var Nombre = document.getElementById('Titulo').value;
+    var Nota = document.getElementById('Nota').value;
+    var Dificultad = document.getElementById('Dificultad').value;
+    var FechaDiseño = document.getElementById('FechaDiseño').value;
+
+    var PracticaId = document.getElementById('PracticaId').value;
+
+    if (PracticaId == '') {
+        var accion = '../Practicas/Nuevo_Practica_Controller';
+    } else {
+        var accion = '../Practicas/Editar_Practica_Controller';        
+    }
+    if (Titulo == '') {
+        $('#control_Titulo').removeClass('hidden');
+    } else {
+        $('#control_Titulo').addClass('hidden');
+        if (Nota == '') {
+            $('#control_Nota').removeClass('hidden');
+        } else {
+            $('#control_Nota').addClass('hidden');
+            if (Dificultad == '') {
+                $('#control_Dificultad').removeClass('hidden');
+            } else {
+                $('#control_Dificultad').addClass('hidden');
+                if (FechaDiseño == '') {
+                    $('#control_FechaDiseño').removeClass('hidden');
+                } else {
+                    $('#control_FechaDiseño').addClass('hidden');
+                    var clasepra = new ClasePracticas(Titulo, Nota, Dificultad, FechaDiseño, accion);
+                    clasepra.Nuevo_Practica(PracticaId);
+                }
+            }
+        }        
+    }
+}
+
 ////Ingreso de Un/////
 var Un_Alumno = (NumMatricula) => {
     var accion = "Alumnos/Un_Alumno_Controller";
@@ -65,6 +101,15 @@ var Un_Profesor = (ProfesorId) => {
     var profesor = new ClaseProfesores('', accion);
     profesor.Un_Profesor(ProfesorId);
 }
+
+
+var Un_Practica = (PracticaId) => {
+    var accion = "Practicas/Un_Practica_Controller";
+    var practica = new ClasePracticas('', '', '', '', accion);
+    practica.Un_Practica(PracticaId);
+}
+
+
 
 
 ////Ingreso de Eliminar/////
@@ -81,6 +126,12 @@ var eliminar_profesor = (ProfesorId) => {
     profesor.eliminar_profesor(ProfesorId);
 }
 
+var eliminar_practica = (PracticaId) => {
+    var accion = "Practicas/Eliminar_Practica_Controller";
+    var practica = new ClasePracticas('', accion);
+    practica.eliminar_practica(PracticaId);
+}
+
 ////Ingreso de Listas/////
 var listaAlumnos = () => {
     var accion = '../Alumnos/Lista_Alumnos_Controller';
@@ -88,59 +139,19 @@ var listaAlumnos = () => {
     alumnos.listaAlumnos();
 }
 
-
-//var listaproveedores = () => {
-//    var accion = '../Proveedors/Lista_Proveedor_Controller';
-//    var proveedor = new ClaseProveedores('', '', '', accion);
-//    proveedor.listaProveedores();
-//}
-
-
 var listaProfesor = () => {
     var accion = 'Profesores/Lista_Profesor_Controller';
     var profesor = new ClaseProfesores('', accion);
     profesor.listaProfesor();
-
-
-var listaProfesor = () => {
-    var accion = '../Proveedors/Lista_Proveedor_Controller';
-    var profesor = new ClaseProfesores('', '', '', accion);
-    profesor.listaProfesor();
-}
-////Imprimir////// 
-var Imprimir_Alumnos = () => {
-    var contenido = document.getElementById('Imprimir_Alumnos').innerHTML;
-    var contenidopaginaoriginal = document.body.innerHTML;
-    document.body.innerHTML = contenido;
-    window.print();
-    document.body.innerHTML = contenidopaginaoriginal;
-    $('#Reporte').modal('hide');
-
 }
 
-    var listaProfesor = () => {
-        var accion = '../Proveedors/Lista_Proveedor_Controller';
-        var profesor = new ClaseProfesores('', '', '', accion);
-        profesor.listaProfesor();
-    }
-    ////Imprimir////// 
-    var Imprimir_Alumnos = () => {
-        var contenido = document.getElementById('Imprimir_Alumnos').innerHTML;
-        var contenidopaginaoriginal = document.body.innerHTML;
-        document.body.innerHTML = contenido;
-        window.print();
-        document.body.innerHTML = contenidopaginaoriginal;
-        $('#Reporte').modal('hide');
-
-    }
+var listaPractica = () => {
+    var accion = 'Practicas/Lista_Practica_Controller';
+    var practicas = new ClasePracticas('', '', '', '', accion);
+    practicas.listaPractica();
+}
 
 
-    var listaproveedores = () => {
-        var accion = '../Proveedors/Lista_Proveedor_Controller';
-        var proveedor = new ClaseProveedores('', '', '', accion);
-        proveedor.listaProveedores();
-
-    }
     ////Imprimir////// 
     var Imprimir_Alumnos = () => {
         var contenido = document.getElementById('Imprimir_Alumnos').innerHTML;
@@ -161,4 +172,4 @@ var Imprimir_Alumnos = () => {
 
         });
     }
-}
+
