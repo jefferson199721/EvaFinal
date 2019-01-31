@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using EvaFinal.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace EvaFinal.Data
 {
@@ -22,5 +23,7 @@ namespace EvaFinal.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
+        public DbSet<IdentityRole> IdentityRole { get; set; }
+        public DbSet<EvaFinal.Models.Alumnos> Alumnos { get; set; }
     }
 }
