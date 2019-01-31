@@ -110,7 +110,7 @@
                 $.each(respuesta, (index, val) => {
                     $('#Cuerpo_Alumno').html(val[0])
                 });
-                // $('#cuerpo_Cliente').html(respuesta);
+               
             }
         );
     }
@@ -125,7 +125,7 @@
         
         document.getElementById("NumMatricula").value = '';
         $('#Ingreso_Alumnos').modal('hide');
-        listaClientes();
+        listaAlumnos();
     }
 
 
