@@ -1,1 +1,87 @@
-﻿// Write your JavaScript code.
+﻿$().ready(
+    ()=>    {
+    listaAlumnos();
+    });
+
+
+//$().ready(
+//    () => {
+//    listaproveedores();
+//    });
+////Ingreso de Nuevos/////
+var nuevo_Alumnos = () => {
+    var Nombres = document.getElementById('Nombres').value;
+    var Apellidos = document.getElementById('Apellidos').value;
+    var CursoParalelo = document.getElementById('CursoParalelo').value;
+    var NumMatricula = document.getElementById("NumMatricula").value;
+
+    if (NumMatricula == '') {
+        var accion = '../Alumnos/Nuevo_Alumnos_Controller';
+    } else {
+        var accion = '../Alumnos/Editar_Alumnos_Controller';
+    }
+    if (Nombres == '') {
+       
+    } else {
+       
+        if (Apellidos == '') {
+            $('#control_Nombre').removeClass('hidden');
+        } else {
+            $('#control_Nombre').addClass('hidden');
+            if (CursoParalelo == '') {
+                $('#control_Apellido').removeClass('hidden');
+            } else {
+                $('#control_Apellido').addClass('hidden');
+                
+            }
+        }
+    }
+}
+
+
+////Ingreso de Un/////
+var Un_Alumno = (NumMatricula) => {
+    var accion = "Alumnos/Un_Alumno_Controller";
+    var alumnos = new ClaseAlumnos(' ',' ',' ', accion);
+    alumnos.Un_Alumnos(NumMatricula);
+}
+
+
+////Ingreso de Eliminar/////
+var eliminar_alumnos = (NumMatricula) => {
+    var accion = "Alumnos/Eliminar_Alumno_Controller";
+    var alumnos = new ClaseAlumnos(' ', ' ', ' ', accion);
+    cliente.eliminar_cliente(NumMatricula);
+}
+
+////Ingreso de Listas/////
+var listaAlumnos = () => {
+    var accion = 'Alumnos/Lista_Alumnos_Controller';
+    var alumnos = new ClaseAlumnos('', '', '', '', '', accion);
+    alumnos.listaAlumnos();
+}
+var listaproveedores = () => {
+    var accion = '../Proveedors/Lista_Proveedor_Controller';
+    var proveedor = new ClaseProveedores('', '', '', accion);
+    proveedor.listaProveedores();
+}
+
+var Imprimir_Alumnos = () => {
+    var contenido = document.getElementById('Imprimir_Alumnos').innerHTML;
+    var contenidopaginaoriginal = document.body.innerHTML;
+    document.body.innerHTML = contenido;
+    window.print();
+    document.body.innerHTML = contenidopaginaoriginal;
+    $('#Reporte').modal('hide');
+}
+
+
+    var quitar_Botones = () => {
+        var contador = 0;
+        $('#Cuerpo_Alumnos tr').each(function () {
+            var celdas = $(this).find('td');
+
+            $(celdas[5]).addClass('hidden');
+
+        });
+    }
