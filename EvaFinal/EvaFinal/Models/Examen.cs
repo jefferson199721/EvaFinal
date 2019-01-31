@@ -8,7 +8,7 @@ namespace EvaFinal.Models
 {
     public class Examen
     {
-        internal readonly string NumMatricula;
+        
 
         [Key]
         public int ExamenId { get; set; }
