@@ -145,10 +145,10 @@ namespace EvaFinal.Models
                     "<td>" + item.Apellidos + "</td>" +
                     "<td>" + item.CursoParalelo + "</td>" +
                     "<td>  <a data-toggle='modal' data-target='#Ingreso_Alumnos' " +
-                    "onclick ='Un_Cliente(" + item.NumMatricula + ")' " +
-                    "class='btn btn-primary'>Edit</a> |" +
-                    "<a onclick='eliminar_cliente(" + item.NumMatricula + ")'" +
-                    "class='btn btn-danger'>Delete</a></td>" +
+                    "onclick ='Un_Alumno(" + item.NumMatricula + ")' " +
+                    "class='btn btn-primary'>Editar</a> |" +
+                    "<a onclick='eliminar_alumnos(" + item.NumMatricula + ")'" +
+                    "class='btn btn-danger'>Eliminar</a></td>" +
                     "</tr>";
             }
             object[] objeto = { dato };
