@@ -1,35 +1,54 @@
 ﻿@model IEnumerable<EvaFinal.Models.Profesor>
-
 @{
     ViewData["Title"] = "Index";
 }
-
-<h2>Index</h2>
+<h2>Lista de Profesores</h2>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="btn btn-primary" data-toggle="modal" data-target="#Ingreso_Profesor">Nuevo Profesor</a>
 </p>
 <table class="table">
     <thead>
         <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Nombre)
-                </th>
+            <th>
+                Nombres
+            </th>       
+
             <th></th>
         </tr>
     </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ProfesorId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProfesorId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProfesorId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
+    <tbody id="Cuerpo_Profesor"></tbody>
 </table>
+
+<div class="modal fade" id="Ingreso_Profesor" tabindex="-1" role="dialog" aria-labelledby="EtiquetaModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="EtiquetaModal">
+                    Ingreso de Profesores
+                </h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="hidden" name="ProfesorId" id="ProfesorId" />
+                    <div class="form-group">
+                        <label class="control-label">Nombre</label>
+                        <input id="Nombre" name="Nombre" class="form-control"
+                               type="text" placeholder="Ingrese el nombre del profesor" />
+                        <span class="label-danger hidden">Campo Obligatorio</span>
+                    </div>                   
+
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="">Cerrar</button>
+                <button id="graba" type="button" class="btn btn-primary" onclick="nuevo_Profesor()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
