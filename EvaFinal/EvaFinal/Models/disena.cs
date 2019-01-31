@@ -13,6 +13,13 @@ namespace EvaFinal.Models
         public string Fecha { get; set; }
         public string Detalle { get; set; }
 
+
     
 }
+
+        public string Detal { get; set; }
+
+
+    }
+
 }
